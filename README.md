@@ -1,7 +1,7 @@
-[![NIGHTLIFE Logo](https://sg-tradeit.herokuapp.com/modules/core/client/img/brand/logo.png)](https://sg-tradeit.herokuapp.com)
+[![NIGHTLIFE Logo](https://sg-bookshelf.herokuapp.com/modules/core/client/img/brand/logo.png)](https://sg-bookshelf.herokuapp.com)
 
-## About TradeIt
-TradeIt is a demo application scaffolded from the MEAN.JS full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications.
+## About BookShelf
+BookShelf is a demo application scaffolded from the MEAN.JS full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications.
 
 This repo is based on the [freecodecamp](https://www.freecodecamp.com/challenges/manage-a-book-trading-club) courseware.
 Authentication integrated with Twitter and Facebook API via oauth2.
@@ -46,5 +46,4 @@ $ npm install gulp -g
 ```
 
 ## Credits
-Book catalog [it-ebooks](http://www.it-ebooks.com/)
-Book search API [itebooks](https://www.npmjs.com/package/itebooks).
+Book catalog [it-ebooks](http://www.it-ebooks.com/).
