@@ -218,11 +218,22 @@ module.exports = function (grunt) {
     },
     copy: {
       localConfig: {
-        src: 'config/env/local.example.js',
-        dest: 'config/env/local.js',
-        filter: function () {
-          return !fs.existsSync('config/env/local.js');
-        }
+        files: [
+          {
+            src: 'config/env/local.example.js',
+            dest: 'config/env/local.js',
+            filter: function () {
+              return !fs.existsSync('config/env/local.js');
+            }
+          },
+          {
+            expand: true,
+            cwd: './node_modules',
+            filter: 'isFile',
+            src: ['./semantic-ui-angular-jquery/**'],
+            dest: 'public/lib'
+          }
+        ],
       }
     }
   });

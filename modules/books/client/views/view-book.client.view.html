@@ -1,0 +1,24 @@
+<section class="ui segment container">
+  <div class="ui two column grid">
+    <div class="six wide column">
+      <img class="ui fluid image" ng-src="{{vm.book.image}}" alt="{{vm.book.title}}" src="{{vm.book.image}}" />
+    </div>
+    <div class="ten wide column">
+      <h2 class="ui dividing header" ng-bind="vm.book.title"></h2>
+      <p ng-bind="vm.book.description"></p>
+      <button class="ui mini red button" ng-click="vm.remove()" ng-show="vm.book.isCurrentUserOwner">
+        <i class="glyphicon glyphicon-trash"></i>
+      </button>
+      <small>
+        <em class="text-muted">
+          Posted on
+          <span ng-bind="vm.book.created | date:'mediumDate'"></span>
+          by
+          <span ng-if="vm.book.user"
+                ng-bind="vm.book.user.displayName"></span>
+          <span ng-if="!vm.book.user">Deleted User</span>
+        </em>
+      </small>
+    </div>
+  </div>
+</section>

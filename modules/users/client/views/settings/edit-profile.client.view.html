@@ -31,6 +31,14 @@
             <p class="help-block error-text" ng-message="required">Username is required.</p>
           </div>
         </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" id="state" name="state" class="form-control" ng-model="user.state" placeholder="State">
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" class="form-control" ng-model="user.city" placeholder="City">          
+        </div>
         <div class="text-center form-group">
           <button type="submit" class="btn btn-primary">Save Profile</button>
         </div>

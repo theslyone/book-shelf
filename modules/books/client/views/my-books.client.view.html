@@ -1,0 +1,25 @@
+<section class="ui container">
+  <form class="ui mini form" name="vm.form.bookForm" ng-submit="vm.save(vm.form.bookForm.$valid)" novalidate>
+    <div class="two fields">
+      <div class="field">
+        <sm-search class="item" model="vm.book.search" remote="{{vm.remoteSearch}}" placeholder="Book search..." icon="search" required></sm-search>
+        <div ng-messages="vm.form.bookForm.name.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Book name is required.</p>
+        </div>
+      </div>
+      <div class="field">
+        <button class="ui mini green button" ng-disabled="vm.form.bookForm.$invalid" type="submit">Add</button>
+      </div>
+    </div>
+    <div ng-show="vm.error" class="text-danger">
+      <strong ng-bind="vm.error"></strong>
+    </div>
+  </form>
+
+  <div class="cover ng-scope" ng-repeat="book in vm.mybooks">
+    <a>
+      <img ng-src="{{book.image}}" alt="{{book.title}}" src="{{book.image}}" />
+      <button type="button" class="close" ng-click="vm.deleteBook(book)">×</button>
+    </a>
+  </div>
+</section>

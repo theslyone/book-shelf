@@ -9,6 +9,9 @@ module.exports = {
         'public/lib/semantic/dist/semantic.css'
       ],
       js: [
+        'public/lib/jquery/dist/jquery.js',
+        'public/lib/semantic/dist/semantic.js',
+
         'public/lib/angular/angular.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
@@ -18,11 +21,11 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-        'public/lib/jquery/dist/jquery.js',
-        'public/lib/semantic/dist/semantic.js',
-
-        'public/lib/chart/dist/Chart.js',
-        'public/lib/angular-chart/dist/angular-chart.js',
+        'public/lib/semantic-ui-angular-jquery/src/sm-core.js',
+        'public/lib/semantic-ui-angular-jquery/src/search/sm-search.js',
+        'public/lib/semantic-ui-angular-jquery/src/dropdown/sm-dropdown.js',
+        'public/lib/semantic-ui-angular-jquery/src/checkbox/sm-checkbox.js',
+        'public/lib/semantic-ui-angular-jquery/src/checkbox/sm-radio.js',
         'public/lib/underscore/underscore.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
