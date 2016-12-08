@@ -19,31 +19,14 @@ Make sure you have installed all of the following prerequisites on your developm
 * Ruby - [Download & Install Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 * Bower - You're going to use the [Bower Package Manager](http://bower.io/) to manage your front-end packages. Make sure you've installed Node.js and npm first, then install bower globally using npm:
 
-```bash
-$ npm install -g bower
-```
-
+## Usage
 * Grunt - You're going to use the [Grunt Task Runner](http://gruntjs.com/) to automate your development process. Make sure you've installed Node.js and npm first, then install grunt globally using npm:
 
 ```bash
 $ npm install -g grunt-cli
 ```
+After this, just cd into the directory, npm install to download dependencies and grunt to run.
 
-* Sass - You're going to use [Sass](http://sass-lang.com/) to compile CSS during your grunt task. Make sure you have ruby installed, and then install Sass using gem install:
-
-```bash
-$ gem install sass
-```
-
-```bash
-$ npm install -g grunt-cli
-```
-
-* Gulp - (Optional) You may use Gulp for Live Reload, Linting, and SASS or LESS.
-
-```bash
-$ npm install gulp -g
-```
 
 ## Credits
 Book catalog [it-ebooks](http://www.it-ebooks.com/).
