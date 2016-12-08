@@ -40,8 +40,12 @@
         $scope.$broadcast('show-errors-check-validity', 'vm.form.bookForm');
         return false;
       }
-      console.log(vm.book);
-      vm.book.$save(successCallback, errorCallback);
+      if(vm.authentication.user){
+        vm.book.$save(successCallback, errorCallback);
+      }
+      else{
+        $state.go('authentication.signin');
+      }
 
       function successCallback(res) {
         vm.updateBooks();
@@ -63,9 +67,13 @@
     }
 
     function requestTrade(){
-      book.requests.push({ user: vm.authentication.user });
-      console.log(vm.book);
-      vm.book.$update(successCallback, errorCallback);
+      if(vm.authentication.user){
+        book.requests.push({ user: vm.authentication.user });
+        vm.book.$update(successCallback, errorCallback);
+      }
+      else{
+        $state.go('authentication.signin');
+      }
 
       function successCallback(res) {
         vm.success = "Request sent";
