@@ -1,4 +1,4 @@
-[![NIGHTLIFE Logo](https://sg-bookshelf.herokuapp.com/modules/core/client/img/brand/logo.png)](https://sg-bookshelf.herokuapp.com)
+[![BookShelf Logo](https://sg-bookshelf.herokuapp.com/modules/core/client/img/brand/logo.png)](https://sg-bookshelf.herokuapp.com)
 
 ## About BookShelf
 BookShelf is a demo application scaffolded from the MEAN.JS full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications.
