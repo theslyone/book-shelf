@@ -44,7 +44,21 @@ var BookSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
-  }
+  },
+  requests: [{
+    created: {
+      type: Date,
+      default: Date.now
+    },
+    status: {
+      type: String,
+      default: ''
+    },
+    user: {
+      type: Schema.ObjectId,
+      ref: 'User'
+    }
+  }]
 });
 
 mongoose.model('Book', BookSchema);

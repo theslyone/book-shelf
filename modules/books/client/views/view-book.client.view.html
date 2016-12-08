@@ -6,19 +6,43 @@
     <div class="ten wide column">
       <h2 class="ui dividing header" ng-bind="vm.book.title"></h2>
       <p ng-bind="vm.book.description"></p>
-      <button class="ui mini red button" ng-click="vm.remove()" ng-show="vm.book.isCurrentUserOwner">
-        <i class="glyphicon glyphicon-trash"></i>
-      </button>
-      <small>
-        <em class="text-muted">
-          Posted on
-          <span ng-bind="vm.book.created | date:'mediumDate'"></span>
-          by
-          <span ng-if="vm.book.user"
-                ng-bind="vm.book.user.displayName"></span>
-          <span ng-if="!vm.book.user">Deleted User</span>
-        </em>
-      </small>
+      <div ng-show="!vm.book.isCurrentUserOwner">
+        <button class="ui mini blue button" ng-click="vm.requestTrade()" ng-disabled="vm.book.requested">
+          <i class="retweet icon"></i> {{ !vm.book.requested ? 'Request Trade' : 'Requested' }}
+        </button>
+        <div class="ui info message" ng-show="vm.book.requested.status">
+          {{vm.book.requested.status}}
+        </div>
+      </div>
+      <div ng-show="vm.book.isCurrentUserOwner">
+        <button ng-show="vm.book.pendingApproval()" class="ui mini green button" ng-click="vm.acceptTrade()">
+          <i class="checkmark icon"></i> Accept Trade
+        </button>
+        <button ng-show="vm.book.pendingApproval()" class="ui mini red button" ng-click="vm.rejectTrade()">
+          <i class="remove icon"></i> Reject Trade
+        </button>
+        <button class="ui mini red button" ng-click="vm.removeBook()">
+          <i class="glyphicon glyphicon-trash"></i> Delete Book
+        </button>
+        <div>
+          <small>
+            <em class="text-muted">
+              Posted on
+              <span ng-bind="vm.book.created | date:'mediumDate'"></span>
+              by
+              <span ng-if="vm.book.user"
+                    ng-bind="vm.book.user.displayName"></span>
+              <span ng-if="!vm.book.user">Deleted User</span>
+            </em>
+          </small>
+        </div>
+      </div>
+      <div ng-show="vm.success" class="ui positive message">
+        <strong ng-bind="vm.success"></strong>
+      </div>
+      <div ng-show="vm.error" class="text-danger">
+        <strong ng-bind="vm.error"></strong>
+      </div>
     </div>
   </div>
 </section>

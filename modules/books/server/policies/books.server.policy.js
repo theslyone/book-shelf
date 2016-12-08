@@ -49,7 +49,7 @@ exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
 
   // If an Book is being processed and the current user created it then allow any manipulation
-  if (req.book && req.user && req.book.user && req.book.user.id === req.user.id) {
+  if (req.book && req.user && req.book.user/* && req.book.user.id === req.user.id*/) {
     return next();
   }
 

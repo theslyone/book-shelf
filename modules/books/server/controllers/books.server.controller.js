@@ -63,11 +63,11 @@ exports.create = function(req, res) {
 exports.read = function(req, res) {
   // convert mongoose document to JSON
   var book = req.book ? req.book.toJSON() : {};
-
+  //console.log(JSON.stringify(book, null, 4));
   // Add a custom field to the Article, for determining if the current User is the "owner".
   // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
   book.isCurrentUserOwner = req.user && book.user && book.user._id.toString() === req.user._id.toString();
-
+  book.requested = req.user && _.find(book.requests, { 'user': req.user._id });
   res.jsonp(book);
 };
 
@@ -85,6 +85,8 @@ exports.update = function(req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
+      book.isCurrentUserOwner = req.user && book.user && book.user._id.toString() === req.user._id.toString();
+      book.requested = req.user && _.find(book.requests, { 'user': req.user._id });
       res.jsonp(book);
     }
   });
@@ -114,10 +116,12 @@ exports.list = function(req, res) {
   var bookQuery = Book.find();
   if(req.query.all){
     var allBooks = JSON.parse(req.query.all);
-    console.log(allBooks);
-    if(!allBooks){
+    if(allBooks === 1){
       bookQuery.where('user').equals(req.user);
-      console.log("book query where user id = " + req.user._id);
+    }
+    else if(allBooks === 2){
+      bookQuery.where('user').equals(req.user)
+      .where('requests.status').equals("");
     }
   }
   bookQuery.sort('-created').populate('user', 'displayName').exec(function(err, books) {
@@ -142,7 +146,7 @@ exports.bookByID = function(req, res, next, id) {
     });
   }
 
-  Book.findById(id).populate('user', 'displayName').exec(function (err, book) {
+  Book.findById(id).populate('user', 'displayName').populate('requests').exec(function (err, book) {
     if (err) {
       return next(err);
     } else if (!book) {

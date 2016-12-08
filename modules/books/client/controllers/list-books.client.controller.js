@@ -5,23 +5,29 @@
     .module('books')
     .controller('BooksListController', BooksListController);
 
-  BooksListController.$inject = ['$scope', '$state', '$window', 'Authentication', 'bookResolve', 'BooksService'];
+  BooksListController.$inject = ['$scope', '$state', '$window', 'Authentication', 'bookResolve', 'BooksService', '_'];
 
-  function BooksListController($scope, $state, $window, Authentication, book, BooksService) {
+  function BooksListController($scope, $state, $window, Authentication, book, BooksService, _) {
     var vm = this;
     vm.colors = ['blue', 'green', 'umber', 'springer'];
     vm.remoteSearch = '/api/books/search/{query}';
     vm.authentication = Authentication;
     vm.book = book;
     vm.books = [];
-    vm.allbooks = true;
+    vm.allbooks = 0;
     vm.error = null;
     vm.form = {};
-    vm.remove = removeBook;
-    vm.save = saveBook;
-    vm.tilt = tiltBook;
+    vm.removeBook = removeBook;
+    vm.saveBook = saveBook;
+    vm.tiltBook = tiltBook;
 
     vm.updateBooks = updateBooks;
+    vm.requestTrade = requestTrade;
+    vm.acceptTrade = acceptTrade;
+    vm.rejectTrade = rejectTrade;
+    vm.book.pendingApproval = function(){
+      return _.find(vm.book.requests, { 'status': '' });
+    };
 
     function removeBook() {
       if ($window.confirm('Are you sure you want to delete?')) {
@@ -53,8 +59,56 @@
     }
 
     function updateBooks(){
-      console.log("Updating books: " + vm.allbooks);
       vm.books = BooksService.query({ all: vm.allbooks });
+    }
+
+    function requestTrade(){
+      book.requests.push({ user: vm.authentication.user });
+      console.log(vm.book);
+      vm.book.$update(successCallback, errorCallback);
+
+      function successCallback(res) {
+        vm.success = "Request sent";
+        vm.book.requested = true;
+      }
+
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
+    }
+
+    function acceptTrade(){
+      //TODO: user trade request based approval
+      book.requests.forEach(function(request){
+        request.status = "Trade Request Accepted";
+      });
+      vm.book.$update(successCallback, errorCallback);
+
+      function successCallback(res) {
+        vm.success = "Request accepted";
+        vm.book.isCurrentUserOwner = true;
+      }
+
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
+    }
+
+    function rejectTrade(){
+      //TODO: user trade request based rejection
+      book.requests.forEach(function(request){
+        request.status = "Trade Request Rejected";
+      });
+      vm.book.$update(successCallback, errorCallback);
+
+      function successCallback(res) {
+        vm.success = "Request rejected";
+        vm.book.isCurrentUserOwner = true;
+      }
+
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
     }
   }
 }());

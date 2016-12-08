@@ -6,7 +6,7 @@
 <section class="ui container">
   <div class="ui two column stackable grid">
     <div class="three wide column ui segment">
-      <form class="ui mini form" name="vm.form.bookForm" ng-submit="vm.save(vm.form.bookForm.$valid)" novalidate>
+      <form class="ui mini form" name="vm.form.bookForm" ng-submit="vm.saveBook(vm.form.bookForm.$valid)" novalidate>
         <div class="field">
           <sm-search name="title" class="item" model="vm.book.search" remote="{{vm.remoteSearch}}" placeholder="Book search..." icon="search" required></sm-search>
           <div ng-messages="vm.form.bookForm.title.$error" role="alert">
@@ -30,9 +30,12 @@
       <div class="ui form" ng-show="vm.authentication.user">
         <label>Display</label>
         <br>
-        <sm-radio model="vm.allbooks" label="All" value="true" name="books"></sm-radio>
+        <sm-radio model="vm.allbooks" label="All" value="0" name="books"></sm-radio>
         <br>
-        <sm-radio model="vm.allbooks" label="My Books" value="false" name="books"></sm-radio><br>
+        <sm-radio model="vm.allbooks" label="My Books" value="1" name="books"></sm-radio>
+        <br>
+        <sm-radio model="vm.allbooks" label="Pending Requests ({{vm.books.requests.length}})" value="2" name="books"></sm-radio>
+        <br>
         <div class="field">
           <button class="ui mini blue fluid button" type="button" ng-click="vm.updateBooks()">Filter</button>
         </div>
@@ -40,7 +43,7 @@
     </div>
     <div class="thirteen wide column">
       <div class="bookshelf" ng-init="vm.updateBooks()">
-        <div ng-class="{ 'tilted': !$first && !$last && !$odd && vm.tilt($index) }" ng-repeat="book in vm.books">
+        <div ng-class="{ 'tilted': !$first && !$last && !$odd && vm.tiltBook($index) }" ng-repeat="book in vm.books">
           <div class="{{book.color}} book" ui-sref="books.view({ bookId: book._id })">
             <h2 ng-bind="book.title"></h2>
             <h3 ng-bind="book.subtitle"></h3>
@@ -48,7 +51,7 @@
         </div>
       </div>
       <div class="alert alert-warning text-center" ng-if="vm.books.$resolved && !vm.books.length">
-        No Books yet, why don't you <a ui-sref="books.create">create one</a>?
+        No Books yet, why don't you <em>add one</em> to your shelf?
       </div>
     </div>
   </div>
