@@ -48,7 +48,7 @@
       }
 
       function successCallback(res) {
-        vm.updateBooks();
+        $state.go('books.list');
       }
 
       function errorCallback(res) {

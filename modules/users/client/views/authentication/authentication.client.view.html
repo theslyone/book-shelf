@@ -1,7 +1,7 @@
 <section class="ui text centered segment container" ng-controller="AuthenticationController">
   <h3 class="ui center aligned header">Sign in using your social accounts</h3>
   <div class="ui centered grid">
-    <button class="ui facebook button" ng-click="callOauthProvider('/api/auth/facebook')" >
+    <button class="ui facebook button" ng-click="callOauthProvider('/api/auth/facebook')"  ng-hide="true">
       <i class="facebook icon"></i>
       Facebook
     </button>
