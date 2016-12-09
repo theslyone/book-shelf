@@ -6,6 +6,7 @@ BookShelf is a demo application scaffolded from the MEAN.JS full-stack JavaScrip
 
 This repo is based on the [freecodecamp](https://www.freecodecamp.com/challenges/manage-a-book-trading-club) courseware.
 Authentication integrated with Twitter and Facebook API via oauth2.
+
 [![Snapshot](https://sg-book-shelf.herokuapp.com/modules/books/client/img/snapshot.png)
 
 ## Before You Begin
