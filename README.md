@@ -1,5 +1,6 @@
-[![BookShelf
-Logo](https://sg-book-shelf.herokuapp.com/modules/core/client/img/brand/logo.png)](https://sg-book-shelf.herokuapp.com)
+## BookShelf ![Build status](https://travis-ci.org/theslyone/book-shelf.svg?branch=master)
+
+![BookShelf Logo](https://sg-book-shelf.herokuapp.com/modules/core/client/img/brand/logo.png)](https://sg-book-shelf.herokuapp.com)
 
 ## About BookShelf
 BookShelf is a demo application scaffolded from the MEAN.JS full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications.
@@ -7,7 +8,7 @@ BookShelf is a demo application scaffolded from the MEAN.JS full-stack JavaScrip
 This repo is based on the [freecodecamp](https://www.freecodecamp.com/challenges/manage-a-book-trading-club) courseware.
 Authentication integrated with Twitter and Facebook API via oauth2.
 
-[![Snapshot](https://sg-book-shelf.herokuapp.com/modules/books/client/img/snapshot.png)
+![Snapshot](https://sg-book-shelf.herokuapp.com/modules/books/client/img/snapshot.png)
 
 ## Before You Begin
 Before you begin we recommend you read about the basic building blocks that assemble a MEAN.JS application:
