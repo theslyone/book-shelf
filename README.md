@@ -1,6 +1,8 @@
 ## BookShelf ![Build status](https://travis-ci.org/theslyone/book-shelf.svg?branch=master)
 
-![BookShelf Logo](https://sg-book-shelf.herokuapp.com/modules/core/client/img/brand/logo.png)](https://sg-book-shelf.herokuapp.com)
+![BookShelf Logo](https://sg-book-shelf.herokuapp.com/modules/core/client/img/brand/logo.png)]
+
+[Demo on heroku](https://sg-book-shelf.herokuapp.com)
 
 ## About BookShelf
 BookShelf is a demo application scaffolded from the MEAN.JS full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications.
